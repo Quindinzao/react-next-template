@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Assets
-import ReactIcon from '../../assets/images/reactjs-icon.svg'
+import ReactIcon from '../../../assets/images/reactjs-icon.svg'
 
 // Styled
 import { Container } from './styles'
