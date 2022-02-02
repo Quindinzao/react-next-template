@@ -3,7 +3,7 @@ import React from 'react'
 import Head from 'next/head'
 
 // Components
-import Body from '../components/Home/Body'
+import Body from '../components/pages/Home'
 
 const Home: React.FC = () => {
   return (
