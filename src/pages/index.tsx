@@ -6,14 +6,14 @@ import Head from 'next/head'
 import Body from '../components/pages/Home'
 
 const Home: React.FC = () => {
-  return (
-    <>
-      <Head>
-        <title>Home</title>
-      </Head>
-      <Body />
-    </>
-  )
+	return (
+		<>
+			<Head>
+				<title>Home</title>
+			</Head>
+			<Body />
+		</>
+	)
 }
 
 export default Home

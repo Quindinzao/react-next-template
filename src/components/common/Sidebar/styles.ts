@@ -3,15 +3,13 @@ import styled from 'styled-components'
 
 // Styled
 import theme from '../../../styles/theme'
+import mq from '../../../styles/breakpoint'
 
 interface SidebarProps {
   isActive: boolean
 }
 
 export const Container = styled.div<SidebarProps>`
-  width: 15rem;
-  height: 100vh;
-
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -21,22 +19,26 @@ export const Container = styled.div<SidebarProps>`
   top: 0;
   left: 0;
 
-  background-color: ${theme.colors.gray_700};
-
-  @media only screen and (max-width: 768px) {
-    width: ${(props) => props.isActive
-      ? '100%'
-      : 'fit-content'
-    };
-    height: ${(props) => props.isActive
-      ? '100%'
-      : 'fit-content'
-    };
-    background-color: ${(props) => props.isActive
-      ? theme.colors.gray_700
-      : 'transparent'
-    };
-  }
+  ${mq({ 
+		width: [
+			props => props.isActive ? '100%' : 'fit-content',
+			props => props.isActive ? '100%' : 'fit-content',
+			'15rem',
+			'15rem'
+		],
+		height: [
+			props => props.isActive ? '100%' : 'fit-content',
+			props => props.isActive ? '100%' : 'fit-content',
+			'100vh',
+			'100vh'
+		],
+		backgroundColor: [
+			props => props.isActive ? theme.colors.gray_700 : 'transparent',
+			props => props.isActive ? theme.colors.gray_700 : 'transparent',
+			theme.colors.gray_700,
+			theme.colors.gray_700
+		]
+	})};
 `
 
 export const ContentImage = styled.div<SidebarProps>`
@@ -50,17 +52,20 @@ export const ContentImage = styled.div<SidebarProps>`
   align-items: center;
   justify-content: center;
 
-  @media only screen and (max-width: 768px) {
-    display: ${(props) => props.isActive
-      ? 'flex'
-      : 'none'
-    };
-  }
+  ${mq({ 
+		display: [
+			props => props.isActive ? 'flex' : 'none',
+			props => props.isActive ? 'flex' : 'none',
+			'flex',
+			'flex'
+		]
+	})};
 `
 
 export const Content = styled.div<SidebarProps>`
-  width: 12.5rem;
   height: calc(100% - 5rem);
+
+  flex-direction: column;
 
   h5 {
     margin-bottom: 2rem;
@@ -70,17 +75,26 @@ export const Content = styled.div<SidebarProps>`
     color: ${props => props.theme.colors.primary};
   }
 
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-
-    align-items: center;
-    flex-direction: column;
-
-    display: ${(props) => props.isActive
-      ? 'flex'
-      : 'none'
-    };
-  }
+  ${mq({
+		width: [
+			'100%',
+			'100%',
+			'12.5rem',
+			'12.5rem' 
+		],
+		alignItems: [
+			'center',
+			'center',
+			'flex-start',
+			'flex-start' 
+		],
+		display: [
+			props => props.isActive ? 'flex' : 'none',
+			props => props.isActive ? 'flex' : 'none',
+			'flex',
+			'flex'
+		]
+	})};
 `
 
 interface LinkProps {
@@ -108,9 +122,9 @@ export const Link = styled.a<LinkProps>`
   line-height: 18px;
   text-decoration: none;
   color: ${(props) => props.isActive
-    ? theme.colors.primary
-    : theme.colors.text
-  };
+		? theme.colors.primary
+		: theme.colors.text
+};
 
   cursor: pointer;
   transition: 0.4s;
@@ -120,15 +134,26 @@ export const Link = styled.a<LinkProps>`
     background-color: ${theme.colors.gray_400};
   }
 
-  @media only screen and (max-width: 768px) {
-    width: fit-content;
-
-    padding-right: 12px;
-
-    align-items: center;
-
-    border-radius: 10px;
-  }
+  ${mq({ 
+		width: [
+			'fit-content',
+			'fit-content',
+			'100%',
+			'100%'
+		],
+		paddingRight: [
+			'12px',
+			'12px',
+			'0px',
+			'0px' 
+		],
+		borderRadius: [
+			'10px',
+			'10px',
+			'10px 0px 0px 10px',
+			'10px 0px 0px 10px' 
+		]
+	})};
 `
 
 export const ButtonMenu = styled.button`
@@ -149,7 +174,12 @@ export const ButtonMenu = styled.button`
   top: 12px;
   left: 12px;
 
-  @media screen and (max-width: 768px) {
-    display: flex;
-  }
+  ${mq({
+		display: [
+			'flex',
+			'flex',
+			'none',
+			'none' 
+		] 
+	})};
 `

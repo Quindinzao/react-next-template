@@ -1,5 +1,7 @@
 // External libraries
-import { createGlobalStyle } from 'styled-components'
+import {
+	createGlobalStyle 
+} from 'styled-components'
 
 // Styled
 import theme from './theme'
