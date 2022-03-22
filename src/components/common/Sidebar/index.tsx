@@ -1,7 +1,16 @@
 // External libraries
+import {
+	Switch 
+} from '@mui/material'
 import React, {
+	useContext,
 	useState 
 } from 'react'
+
+// Hooks
+import {
+	DarkLightContext 
+} from '../../../hooks/contexts/DarkLightContext'
 
 // Assets
 import ReactIcon from '../../../assets/images/reactjs-icon.svg'
@@ -17,24 +26,41 @@ import {
 
 interface SidebarProps {
   home?: boolean
+	test?: boolean
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
-	home 
+	home,
+	test
 }) => {
 	const [ isActive, setIsActive ] = useState(false)
+	
+	const {
+		checked, setChecked 
+	} = useContext(DarkLightContext)
+
+	const handleChange = () => {
+		setChecked(!checked)
+	}
+
 	return (
 		<Container isActive={isActive}>
 			<ContentImage isActive={isActive}>
 				<ReactIcon />
 			</ContentImage>
 			<Content isActive={isActive}>
-				<h5>MENU</h5>
-				<Link
-					href='/'
-					isActive={home}
-				>
+				<h5>MENU
+					<Switch 
+						checked={checked}
+						onChange={handleChange}
+						color='default'
+					/>
+				</h5>
+				<Link href='/' isActive={home}>
           HOME
+				</Link>
+				<Link href='/test' isActive={test}>
+          TEST
 				</Link>
 			</Content>
 			<ButtonMenu onClick={() => setIsActive(!isActive)}>

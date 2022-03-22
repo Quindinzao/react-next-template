@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 // Styled
-import theme from '../../../styles/theme'
+import theme from '../../../styles/themes/dark'
 import mq from '../../../styles/breakpoint'
 
 interface SidebarProps {
@@ -68,11 +68,17 @@ export const Content = styled.div<SidebarProps>`
   flex-direction: column;
 
   h5 {
-    margin-bottom: 2rem;
+		width: 100%;
+		
+		margin-bottom: 2rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
     font-size: 1.5rem;
     letter-spacing: 2.5px;
-    color: ${props => props.theme.colors.primary};
+    color: ${theme.colors.primary};
   }
 
   ${mq({
@@ -123,7 +129,7 @@ export const Link = styled.a<LinkProps>`
   text-decoration: none;
   color: ${(props) => props.isActive
 		? theme.colors.primary
-		: theme.colors.text
+		: theme.colors.link
 };
 
   cursor: pointer;

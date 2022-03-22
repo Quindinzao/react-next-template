@@ -1,22 +1,25 @@
+// External libraries
 import React from 'react'
 import {
 	AppProps 
 } from 'next/app'
 
-import GlobalStyle from '../styles/global'
+// Hooks
 import {
-	ThemeProvider 
-} from 'styled-components'
-import theme from '../styles/theme'
+	DarkLightProvider 
+} from '../hooks/contexts/DarkLightContext'
+
+// Styled
+import GlobalStyle from '../styles/global'
 
 const MyApp: React.FC<AppProps> = ({
 	Component, pageProps 
 }) => {
 	return (
-		<ThemeProvider theme={theme}>
+		<DarkLightProvider>
 			<Component {...pageProps} />
 			<GlobalStyle />
-		</ThemeProvider>
+		</DarkLightProvider>
 	)
 }
 
