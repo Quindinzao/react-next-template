@@ -26,12 +26,10 @@ import {
 
 interface SidebarProps {
   home?: boolean
-	test?: boolean
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
-	home,
-	test
+	home
 }) => {
 	const [ isActive, setIsActive ] = useState(false)
 	
@@ -58,9 +56,6 @@ const Sidebar: React.FC<SidebarProps> = ({
 				</h5>
 				<Link href='/' isActive={home}>
           HOME
-				</Link>
-				<Link href='/test' isActive={test}>
-          TEST
 				</Link>
 			</Content>
 			<ButtonMenu onClick={() => setIsActive(!isActive)}>

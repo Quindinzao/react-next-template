@@ -14,13 +14,13 @@ import {
 const Home: React.FC = () => {
 	return (
 		<Container>
+			<Content>
+				<h2>Next.js Structure</h2>
+				<h5>A real-time chart by Quindinzão.</h5>
+			</Content>
 			<SidebarContent>
 				<Sidebar home={true} />
 			</SidebarContent>
-			<Content>
-				<h2>Next.js Structure</h2>
-				<h5>A Material-UI + Context API by Quindinzão.</h5>
-			</Content>
 		</Container>
 	)
 }

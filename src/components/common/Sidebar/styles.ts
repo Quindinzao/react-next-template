@@ -79,6 +79,15 @@ export const Content = styled.div<SidebarProps>`
     font-size: 1.5rem;
     letter-spacing: 2.5px;
     color: ${theme.colors.primary};
+
+		${mq({
+		justifyContent: [
+			'center',
+			'center',
+			'space-between',
+			'space-between'
+		]
+	})}
   }
 
   ${mq({
