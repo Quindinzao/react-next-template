@@ -8,32 +8,16 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
-  padding: 5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-`
-
-export const SidebarContent = styled.div`
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-
-  background-color: transparent;
 
   ${mq({ 
-		width: [
-			'fit-content',
-			'fit-content',
-			'17.5rem',
-			'17.5rem' 
-		],
-		height: [
-			'100%',
-			'100%',
-			'fit-content',
-			'fit-content' 
+		padding: [
+			'16px',
+			'24px',
+			'5rem 5rem 5rem 17rem',
+			'5rem 5rem 5rem 17rem'
 		]
 	})};
 `
