@@ -13,7 +13,6 @@ import dark from '../../styles/themes/dark'
 import light from '../../styles/themes/light'
 
 interface DarkLightContextProps {
-  theme: object
   checked: boolean
   setChecked: React.Dispatch<React.SetStateAction<boolean>>
   // handleChange: (checked, setChecked) => void
@@ -24,21 +23,30 @@ export const DarkLightContext = createContext<DarkLightContextProps>({} as DarkL
 export const DarkLightProvider = ({
 	children 
 }) => {
-	const [ theme, setTheme ] = useState(dark)
+	const [ theme, setTheme ] = useState('')
 	const [ checked, setChecked ] = useState(false)
 
 	useEffect(() => {
-		if (checked) setTheme(light)
-		else setTheme(dark)
+		setTheme(localStorage.getItem('theme'))
+		if (!theme) return
+
+		if (checked) localStorage.setItem('theme', 'light')
+		else localStorage.setItem('theme', 'dark')
+		
+		setTheme(localStorage.getItem('theme'))
 	}, [ checked ])
+
+	useEffect(() => {
+		if (theme === 'light') setChecked(true)
+		else setChecked(false)
+	}, [ theme ])
 
 	return (
 		<DarkLightContext.Provider value={{
-			theme,
 			checked,
 			setChecked
 		}}>
-			<ThemeProvider theme={theme}>
+			<ThemeProvider theme={theme === 'dark' ? dark : light}>
 				{children}
 			</ThemeProvider>
 		</DarkLightContext.Provider>
