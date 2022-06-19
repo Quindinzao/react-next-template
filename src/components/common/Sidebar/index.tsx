@@ -10,7 +10,7 @@ import React, {
 // Hooks
 import {
 	DarkLightContext 
-} from '../../../hooks/contexts/DarkLightContext'
+} from '../../../contexts/DarkLightContext'
 
 // Assets
 import ReactIcon from '../../../assets/images/reactjs-icon.svg'

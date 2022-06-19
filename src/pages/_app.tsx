@@ -7,7 +7,7 @@ import {
 // Hooks
 import {
 	DarkLightProvider 
-} from '../hooks/contexts/DarkLightContext'
+} from '../contexts/DarkLightContext'
 
 // Styled
 import GlobalStyle from '../styles/global'

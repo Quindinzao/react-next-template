@@ -9,8 +9,8 @@ import {
 } from 'styled-components'
 
 // Styled
-import dark from '../../styles/themes/dark'
-import light from '../../styles/themes/light'
+import dark from '../styles/themes/dark'
+import light from '../styles/themes/light'
 
 interface DarkLightContextProps {
   checked: boolean
